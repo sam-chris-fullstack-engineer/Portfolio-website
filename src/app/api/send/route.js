@@ -1,5 +1,3 @@
-// src/app/api/send/route.js
-
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -18,20 +16,22 @@ const extractUsername = (email) => {
 export async function POST(req) {
   try {
     const { email, subject, message } = await req.json();
-    console.log(email, subject, message);
+    console.log("Email:", email, "Subject:", subject, "Message:", message);
 
     const username = extractUsername(email);
 
-    // Set up the transporter with your email service configuration
+    // Log environment variables to ensure they are set correctly
+    console.log("GMAIL_USER:", process.env.GMAIL_USER);
+    console.log("GMAIL_PASS:", process.env.GMAIL_PASS);
+
     const transporter = nodemailer.createTransport({
-      service: "Gmail", // or another email service
+      service: "Gmail",
       auth: {
-        user: process.env.GMAIL_USER, // your email address
-        pass: process.env.GMAIL_PASS, // your email password
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
       },
     });
 
-    // Email content for the recipient (your email)
     const mailOptions = {
       from: email,
       to: process.env.GMAIL_USER,
@@ -39,7 +39,6 @@ export async function POST(req) {
       text: message,
     };
 
-    // Email content for the sender (user)
     const userMailOptions = {
       from: process.env.GMAIL_USER,
       to: email,
@@ -47,11 +46,13 @@ export async function POST(req) {
       text: `Hi ${username},\n\nI appreciate you reaching out!. I'll get back to you as soon as possible\n\nBest regards,\nSam Christopher`,
     };
 
-    // Send email to the recipient (your email)
+    console.log("Sending email to self...");
     await transporter.sendMail(mailOptions);
+    console.log("Email to self sent successfully");
 
-    // Send confirmation email to the user
+    console.log("Sending confirmation email to user...");
     await transporter.sendMail(userMailOptions);
+    console.log("Confirmation email sent successfully");
 
     return NextResponse.json({
       success: true,
