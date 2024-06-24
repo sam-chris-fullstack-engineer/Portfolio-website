@@ -190,9 +190,9 @@ const EmailSection = forwardRef((props, ref) => {
           }`}
         >
           <div className="z-10">
-            <h5 className="text-4xl font-bold mb-8">Let's Connect</h5>
+            <h5 className="text-4xl font-bold mb-8">Let&apos;s Connect</h5>
             <p className="text-gray-400 mb-6 overflow-hidden">
-              <StaggeredWaveText text="I'm always open to new connections and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!" />
+              <StaggeredWaveText text="I&apos;m always open to new connections and collaborations. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!" />
             </p>
             <div className="socials flex space-x-6">
               <Link href="https://github.com/sam-christopher07">
@@ -282,7 +282,7 @@ const EmailSection = forwardRef((props, ref) => {
                   className={`w-full p-3 rounded-lg bg-gray-700 border ${
                     errors.message ? "border-red-500" : "border-gray-600"
                   } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="Let's talk about..."
+                  placeholder="Let&apos;s talk about..."
                 />
                 {errors.message && (
                   <p className="text-red-500 text-sm mt-1">*{errors.message}</p>

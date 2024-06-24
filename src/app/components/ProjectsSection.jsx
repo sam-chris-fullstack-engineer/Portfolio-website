@@ -55,13 +55,10 @@ const ProjectsSection = forwardRef((props, ref) => {
 
   return (
     <div ref={ref} className="container mx-auto px-4 py-8">
-      {" "}
       <h2 className="text-center text-4xl font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent mb-8 ">
-        {" "}
         My Projects
       </h2>
       <div className="text-white flex flex-row justify-center items-start gap-2 py-4">
-        {" "}
         {["All", "Web", "UI"].map(renderTagButton)}
       </div>
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">

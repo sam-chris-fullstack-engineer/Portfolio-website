@@ -95,7 +95,7 @@ const AboutSection = () => {
       content: (
         <motion.ul
           key="education"
-          initial={{ x: -100, opacity: 0 }} // i Changed x value for left to right animation
+          initial={{ x: -100, opacity: 0 }} // Changed x value for left to right animation
           animate={tab === "education" ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
           className="font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent list-disc pl-2 "
@@ -114,13 +114,13 @@ const AboutSection = () => {
       content: (
         <motion.ul
           key="certifications"
-          initial={{ x: -100, opacity: 0 }} //i Changed x value for left to right animation
+          initial={{ x: -100, opacity: 0 }} // Changed x value for left to right animation
           animate={tab === "certifications" ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
           className="font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent list-disc pl-2"
         >
           <li className="text-2xl">Java Full Stack Development</li>
-          <br></br>
+          <br />
           <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Walmart%20USA/oX6f9BbCL9kJDJzfg_Walmart%20USA_DG6KEnhsrkr2GcE3t_1710050024918_completion_certificate.pdf">
             <li className="text-2xl">
               Walmart USA - Advanced Software Engineering Job Simulation
@@ -184,7 +184,7 @@ const AboutSection = () => {
             initial="hidden"
             animate={inViewAbout ? "visible" : "hidden"}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-yellow-400 mb-4 about-title" // i Applied the about-title class here
+            className="text-4xl font-bold text-yellow-400 mb-4 about-title" // Applied the about-title class here
           >
             About Me
           </motion.h2>
@@ -195,15 +195,16 @@ const AboutSection = () => {
             transition={{ duration: 0.5 }}
             className={`text-base lg:text-lg ${exo.className}`}
           >
-            Hi, I'm Sam Christopher. I obtained my MCA from KGISL Institute of
-            Information Management in Coimbatore, Tamil Nadu. I have also
+            Hi, I&apos;m Sam Christopher. I obtained my MCA from KGISL Institute
+            of Information Management in Coimbatore, Tamil Nadu. I have also
             finished Java Full Stack Development, specializing in Java backend
             development. I enjoy creating user-interactive visual designs and
             developing websites that are both functional and aesthetically
             pleasing. I love transforming ideas into captivating online
             experiences while staying updated with the latest design trends.
-            Explore my portfolio to see the range of projects I've worked on and
-            how I've applied my skills to deliver exceptional user experiences.{" "}
+            Explore my portfolio to see the range of projects I&apos;ve worked
+            on and how I&apos;ve applied my skills to deliver exceptional user
+            experiences.{" "}
           </motion.p>
           <motion.div
             variants={container(1)}
