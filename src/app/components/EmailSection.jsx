@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect, forwardRef } from "react";
 import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
@@ -181,49 +180,49 @@ const EmailSection = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className="relative bg-gradient-to-r from-gray-800 to-black text-white py-12 px-6 md:px-12 rounded-lg shadow-2xl mt-12"
+      className="relative bg-gradient-to-r from-gray-800 to-black text-white py-6 px-4 sm:py-12 sm:px-6 md:px-12 rounded-lg shadow-2xl mt-12"
     >
-      <div className="bg-black bg-opacity-50 rounded-lg p-6 md:p-12">
+      <div className="bg-black bg-opacity-50 rounded-lg p-4 sm:p-6 md:p-12">
         <section
-          className={`grid md:grid-cols-2 gap-8 ${
+          className={`grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 ${
             emailSubmitted ? "blur-sm" : ""
           }`}
         >
           <div className="z-10">
-            <h5 className="text-4xl font-bold mb-8">Let&apos;s Connect</h5>
-            <p className="text-gray-400 mb-6 overflow-hidden">
+            <h5 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8">Let&apos;s Connect</h5>
+            <p className="text-gray-400 mb-4 sm:mb-6 overflow-hidden">
               <StaggeredWaveText text="I&apos;m always open to new connections and collaborations. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!" />
             </p>
-            <div className="socials flex space-x-6">
+            <div className="socials flex space-x-4 sm:space-x-6">
               <Link href="https://github.com/sam-christopher07">
                 <Image
                   src={GithubIcon}
                   alt="Github Icon"
-                  className="w-10 h-10 hover:opacity-80 transition-opacity duration-300"
+                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
                 />
               </Link>
               <Link href="https://www.linkedin.com/in/sam-christopher07/">
                 <Image
                   src={LinkedinIcon}
                   alt="Linkedin Icon"
-                  className="w-10 h-10 hover:opacity-80 transition-opacity duration-300"
+                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
                 />
               </Link>
               <Link href="#">
                 <Image
                   src={InstagramIcon}
                   alt="Instagram Icon"
-                  className="w-10 h-10 hover:opacity-80 transition-opacity duration-300"
+                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
                 />
               </Link>
             </div>
           </div>
           <div>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-1 sm:mb-2"
                 >
                   Enter Your Email
                 </label>
@@ -234,7 +233,7 @@ const EmailSection = forwardRef((props, ref) => {
                   value={formData.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`w-full p-3 rounded-lg bg-gray-700 border ${
+                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
                     errors.email ? "border-red-500" : "border-gray-600"
                   } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                   placeholder="xyz@gmail.com"
@@ -246,7 +245,7 @@ const EmailSection = forwardRef((props, ref) => {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-1 sm:mb-2"
                 >
                   Subject
                 </label>
@@ -257,7 +256,7 @@ const EmailSection = forwardRef((props, ref) => {
                   value={formData.subject}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`w-full p-3 rounded-lg bg-gray-700 border ${
+                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
                     errors.subject ? "border-red-500" : "border-gray-600"
                   } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                   placeholder="Just saying hi"
@@ -269,7 +268,7 @@ const EmailSection = forwardRef((props, ref) => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-1 sm:mb-2"
                 >
                   Message
                 </label>
@@ -279,7 +278,7 @@ const EmailSection = forwardRef((props, ref) => {
                   value={formData.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`w-full p-3 rounded-lg bg-gray-700 border ${
+                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
                     errors.message ? "border-red-500" : "border-gray-600"
                   } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                   placeholder="Let&apos;s talk about..."
@@ -290,7 +289,7 @@ const EmailSection = forwardRef((props, ref) => {
               </div>
               <button
                 type="submit"
-                className="w-full py-3 rounded-lg bg-yellow-700 hover:bg-yellow-900 font-semibold transition-colors duration-300 flex items-center justify-center"
+                className="w-full py-2 sm:py-3 rounded-lg bg-yellow-700 hover:bg-yellow-900 font-semibold transition-colors duration-300 flex items-center justify-center"
               >
                 {isLoading ? (
                   <div className="spinner"></div>
