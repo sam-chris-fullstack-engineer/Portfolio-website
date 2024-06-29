@@ -1,75 +1,137 @@
 import React, { useState, useEffect, forwardRef } from "react";
-import Image from "next/image";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
-import InstagramIcon from "../../../public/Instagram-icon.svg";
-import { Exo } from "next/font/google";
-import Link from "next/link";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const exo = Exo({
-  subsets: ["latin"],
-  weight: "400",
-  style: "normal",
-});
+const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
 
-const wave = keyframes`
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  20% { transform: translateY(-10%); opacity: 1; }
-  40% { transform: translateY(0); }
-  60% { transform: translateY(-5%); }
-  80% { transform: translateY(0); }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    box-shadow: none;
+    max-width: 95%; /* Increased width for mobile */
+    border-radius: 20px;
+    padding: 0 20px;
+  }
 `;
 
-const WaveText = styled.span`
-  display: inline-block;
-  animation: ${wave} 2s ease-in-out infinite;
-  opacity: 1;
-  margin-right: ${({ isSpace }) => (isSpace ? "0.5em" : "0")};
-  background: linear-gradient(to right, #ffd700, #ff8c00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+const LeftPanel = styled.div`
+  flex: 1;
+  background: url('/path/to/your/image.jpg') no-repeat center center;
+  background-size: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  @media (max-width: 768px) {
+    height: 180px; /* Reduced height for mobile */
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
 `;
 
-const StaggeredWaveText = ({ text }) => {
-  const [isClient, setIsClient] = useState(false);
-  const [displayedText, setDisplayedText] = useState("");
+const RightPanel = styled.div`
+  flex: 1;
+  padding: 40px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 
-  useEffect(() => {
-    setIsClient(true);
-    setDisplayedText(text);
-  }, [text]);
-
-  if (!isClient) {
-    return <span>{text}</span>;
+  @media (max-width: 1024px) {
+    padding: 30px;
   }
 
-  const charArray = displayedText.split(/( )/);
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+`;
 
-  return (
-    <div>
-      {charArray.map((char, index) => (
-        <WaveText
-          key={index}
-          style={{ animationDelay: `${index * 0.1}s` }}
-          isSpace={char === " "}
-        >
-          {char}
-        </WaveText>
-      ))}
-    </div>
-  );
-};
+const FormTitle = styled.h2`
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    text-align: center;
+  }
+`;
+
+const FormSubtitle = styled.p`
+  margin-bottom: 20px;
+  color: #666;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    text-align: center;
+  }
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 14px; /* Reduced padding for mobile */
+  margin: 10px 0; /* Reduced margin for mobile */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+
+  @media (max-width: 768px) {
+    height: 45px; /* Adjusted height for mobile */
+    font-size: 16px; /* Increased font size for better readability */
+  }
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  padding: 14px; /* Reduced padding for mobile */
+  margin: 10px 0; /* Reduced margin for mobile */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  resize: none;
+
+  @media (max-width: 768px) {
+    height: 80px; /* Reduced height for mobile */
+    font-size: 16px; /* Increased font size for better readability */
+  }
+`;
+
+const SubmitButton = styled.button`
+  width: 100%;
+  padding: 16px; /* Reduced padding for mobile */
+  border: none;
+  border-radius: 5px;
+  background: #6200ea;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background: #3700b3;
+  }
+
+  @media (max-width: 768px) {
+    height: 50px; /* Adjusted height for mobile */
+    font-size: 18px; /* Increased font size for better readability */
+  }
+`;
 
 const EmailSection = forwardRef((props, ref) => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -89,11 +151,11 @@ const EmailSection = forwardRef((props, ref) => {
       } else {
         delete formErrors.email;
       }
-    } else if (name === "subject") {
+    } else if (name === "name") {
       if (!value.trim()) {
-        formErrors.subject = "Subject is required.";
+        formErrors.name = "Name is required.";
       } else {
-        delete formErrors.subject;
+        delete formErrors.name;
       }
     } else if (name === "message") {
       if (!value.trim()) {
@@ -123,8 +185,8 @@ const EmailSection = forwardRef((props, ref) => {
       formErrors.email = "Please enter a valid email address.";
     }
 
-    if (!formData.subject.trim()) {
-      formErrors.subject = "Subject is required.";
+    if (!formData.name.trim()) {
+      formErrors.name = "Name is required.";
     }
     if (!formData.message.trim()) {
       formErrors.message = "Message is required.";
@@ -138,7 +200,7 @@ const EmailSection = forwardRef((props, ref) => {
 
     const data = {
       email: formData.email,
-      subject: formData.subject,
+      name: formData.name,
       message: formData.message,
     };
     const JSONdata = JSON.stringify(data);
@@ -178,129 +240,48 @@ const EmailSection = forwardRef((props, ref) => {
   };
 
   return (
-    <div
-      ref={ref}
-      className="relative bg-gradient-to-r from-gray-800 to-black text-white py-6 px-4 sm:py-12 sm:px-6 md:px-12 rounded-lg shadow-2xl mt-12"
-    >
-      <div className="bg-black bg-opacity-50 rounded-lg p-4 sm:p-6 md:p-12">
-        <section
-          className={`grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 ${
-            emailSubmitted ? "blur-sm" : ""
-          }`}
-        >
-          <div className="z-10">
-            <h5 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8">Let&apos;s Connect</h5>
-            <p className="text-gray-400 mb-4 sm:mb-6 overflow-hidden">
-              <StaggeredWaveText text="I&apos;m always open to new connections and collaborations. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!" />
-            </p>
-            <div className="socials flex space-x-4 sm:space-x-6">
-              <Link href="https://github.com/sam-christopher07">
-                <Image
-                  src={GithubIcon}
-                  alt="Github Icon"
-                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
-                />
-              </Link>
-              <Link href="https://www.linkedin.com/in/sam-christopher07/">
-                <Image
-                  src={LinkedinIcon}
-                  alt="Linkedin Icon"
-                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
-                />
-              </Link>
-              <Link href="#">
-                <Image
-                  src={InstagramIcon}
-                  alt="Instagram Icon"
-                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
-                />
-              </Link>
-            </div>
-          </div>
-          <div>
-            <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-1 sm:mb-2"
-                >
-                  Enter Your Email
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
-                    errors.email ? "border-red-500" : "border-gray-600"
-                  } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="xyz@gmail.com"
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">*{errors.email}</p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium mb-1 sm:mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  name="subject"
-                  type="text"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
-                    errors.subject ? "border-red-500" : "border-gray-600"
-                  } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="Just saying hi"
-                />
-                {errors.subject && (
-                  <p className="text-red-500 text-sm mt-1">*{errors.subject}</p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-1 sm:mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  id="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
-                    errors.message ? "border-red-500" : "border-gray-600"
-                  } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="Let&apos;s talk about..."
-                />
-                {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">*{errors.message}</p>
-                )}
-              </div>
-              <button
-                type="submit"
-                className="w-full py-2 sm:py-3 rounded-lg bg-yellow-700 hover:bg-yellow-900 font-semibold transition-colors duration-300 flex items-center justify-center"
-              >
-                {isLoading ? (
-                  <div className="spinner"></div>
-                ) : (
-                  "Send Message"
-                )}
-              </button>
-            </form>
-          </div>
-        </section>
-      </div>
+    <div ref={ref} className="py-12 px-4">
+      <FormWrapper>
+        <LeftPanel />
+        <RightPanel>
+          <FormTitle>Let’s talk!</FormTitle>
+          <FormSubtitle>
+            Do you have a project in mind? We’re all ears.
+          </FormSubtitle>
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              required
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              required
+            />
+            <TextArea
+              name="message"
+              placeholder="Tell us about your project"
+              value={formData.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              rows="4"
+              required
+            />
+            <SubmitButton type="submit">
+              {isLoading ? <div className="spinner"></div> : "Send"}
+            </SubmitButton>
+          </form>
+        </RightPanel>
+      </FormWrapper>
       {emailSubmitted && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-opacity-75 bg-gray-900">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">
