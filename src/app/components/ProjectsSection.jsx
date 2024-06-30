@@ -24,7 +24,16 @@ const projectsData = [
     tag: ["All", "Web", "UI"],
     gitUrl: "/",
     previewUrl: "/",
-    videoUrl: "/videos/project4.mp4",
+  },
+  {
+    id: 3,
+    title: "Guess My Number",
+    description:
+      "Guess My Number is a fun game where players try to guess a randomly generated number. This project showcases my skills in JavaScript, HTML, and CSS.",
+    imageUrl: "/images/projects/project-3.png",
+    tag: ["All", "Web", "Games"],
+    gitUrl: "https://github.com/sam-christopher07/Guess-My-Number-Game",
+    previewUrl: "https://guess-my-number-web-game.netlify.app",
   },
 ];
 
@@ -47,7 +56,13 @@ const ProjectsSection = forwardRef((props, ref) => {
       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
         tag === name ? "bg-yellow-600 text-black" : "bg-gray-700 text-white"
       } hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-      style={{ width: "70px", height: "40px" }}
+      style={{
+        width: "70px",
+        height: "40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
       {name}
     </button>
@@ -59,7 +74,7 @@ const ProjectsSection = forwardRef((props, ref) => {
         My Projects
       </h2>
       <div className="text-white flex flex-row justify-center items-start gap-2 py-4">
-        {["All", "Web", "UI"].map(renderTagButton)}
+        {["All", "Web", "UI", "Games"].map(renderTagButton)}
       </div>
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
@@ -76,6 +91,7 @@ const ProjectsSection = forwardRef((props, ref) => {
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
               videoUrl={project.videoUrl}
+              showVideoIcon={index === 0} // Only show video icon on the first project
             />
           </motion.div>
         ))}

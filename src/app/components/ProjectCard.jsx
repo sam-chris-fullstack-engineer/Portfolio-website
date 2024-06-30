@@ -1,9 +1,21 @@
 "use client";
 import React from "react";
-import { CodeBracketIcon, EyeIcon, VideoCameraIcon } from "@heroicons/react/24/outline";
+import {
+  CodeBracketIcon,
+  EyeIcon,
+  VideoCameraIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, videoUrl }) => {
+const ProjectCard = ({
+  imgUrl,
+  title,
+  description,
+  gitUrl,
+  previewUrl,
+  videoUrl,
+  showVideoIcon,
+}) => {
   return (
     <div className="relative group">
       <div
@@ -14,23 +26,25 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, videoUrl 
           <Link
             href={gitUrl}
             className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-yellow-400 flex items-center justify-center"
-            style={{ marginTop: '-4px' }} // i Moved the icon up slightly
+            style={{ marginTop: "-4px" }} // i Moved the icon up slightly
           >
             <CodeBracketIcon className="h-10 w-10 text-yellow-300" />
           </Link>
 
-          <Link
-            href={videoUrl}
-            className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-yellow-400 flex items-center justify-center"
-            style={{ marginTop: '-4px' }} // i Moved the icon up slightly
-          >
-            <VideoCameraIcon className="h-10 w-10 text-yellow-300" />
-          </Link>
+          {showVideoIcon && videoUrl && (
+            <Link
+              href={videoUrl}
+              className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-yellow-400 flex items-center justify-center"
+              style={{ marginTop: "-4px" }} // i Moved the icon up slightly
+            >
+              <VideoCameraIcon className="h-10 w-10 text-yellow-300" />
+            </Link>
+          )}
 
           <Link
             href={previewUrl}
             className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-yellow-400 flex items-center justify-center"
-            style={{ marginTop: '-4px' }} // i Moved the icon up slightly
+            style={{ marginTop: "-4px" }} // i Moved the icon up slightly
           >
             <EyeIcon className="h-10 w-10 text-yellow-300" />
           </Link>
