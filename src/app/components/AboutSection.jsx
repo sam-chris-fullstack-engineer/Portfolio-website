@@ -172,7 +172,7 @@ const AboutSection = () => {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <StyledImage
-            src="/images/about-image1.png"
+            src="/images/about-image2.gif"
             width={500}
             height={400}
             alt="About Image"

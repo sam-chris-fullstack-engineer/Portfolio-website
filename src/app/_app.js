@@ -8,9 +8,8 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link
           rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
+          type="image/x-icon"
+          href="/favicon.ico"
         />
       </Head>
       <Component {...pageProps} />

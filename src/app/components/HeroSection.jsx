@@ -177,7 +177,7 @@ const HeroSection = ({ emailRef }) => {
               transition={{ duration: 1, delay: 1.2, ease: "easeInOut" }}
             >
               <StyledImage
-                src="/images/hero-mobile3.png"
+                src="/images/hero-mobile4.png"
                 alt="hero image mobile"
                 width={950}
                 height={950}
@@ -190,7 +190,7 @@ const HeroSection = ({ emailRef }) => {
               transition={{ duration: 1, delay: 1.2, ease: "easeInOut" }}
             >
               <StyledImage
-                src="/images/hero-desktop.png"
+                src="/images/hero-desktop2.png"
                 alt="hero image"
                 width={600}
                 height={500}

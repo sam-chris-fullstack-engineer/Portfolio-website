@@ -35,6 +35,16 @@ const projectsData = [
     gitUrl: "https://github.com/sam-christopher07/Guess-My-Number-Game",
     previewUrl: "https://guess-my-number-web-game.netlify.app",
   },
+  {
+    id: 4,
+    title: "Health Align: A Healthcare Management System",
+    description:
+      "Health Align is a patient management application designed to streamline healthcare experiences. It enables easy registration, appointment booking, and management for patients, and includes administrative tools for scheduling and canceling appointments, along with SMS notifications. Built with Next.js for a robust user experience.",
+    imageUrl: "/images/projects/project-4.png",
+    tag: ["All", "Web", "UI"],
+    gitUrl: "https://github.com/sam-christopher07/Health-Align-WebApp",
+    previewUrl: "https://health-align-web-app.vercel.app",
+  },
 ];
 
 const ProjectsSection = forwardRef((props, ref) => {
