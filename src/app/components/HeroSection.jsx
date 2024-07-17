@@ -192,8 +192,8 @@ const HeroSection = ({ emailRef }) => {
               <StyledImage
                 src="/images/hero-desktop2.png"
                 alt="hero image"
-                width={600}
-                height={500}
+                width={500}
+                height={600}
               />
             </motion.div>
           )}
