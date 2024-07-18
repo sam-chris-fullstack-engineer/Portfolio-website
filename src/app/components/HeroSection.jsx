@@ -88,8 +88,6 @@ const HeroSection = ({ emailRef }) => {
                 1000,
                 "Software Developer",
                 1000,
-                "UI Designer",
-                1000,
                 "Video Editor",
                 1000,
                 "Content Creator",

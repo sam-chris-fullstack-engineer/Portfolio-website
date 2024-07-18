@@ -21,7 +21,7 @@ const projectsData = [
     description:
       "My personal portfolio website is a comprehensive showcase of my skills, projects, and professional journey, meticulously developed using Next.js and Tailwind CSS.",
     imageUrl: "/images/projects/project-2.png",
-    tag: ["All", "Web", "UI"],
+    tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -41,7 +41,7 @@ const projectsData = [
     description:
       "Health Align is a patient management application designed to streamline healthcare experiences. It enables easy registration, appointment booking, and management for patients, and includes administrative tools for scheduling and canceling appointments, along with SMS notifications. Built with Next.js for a robust user experience.",
     imageUrl: "/images/projects/project-4.png",
-    tag: ["All", "Web", "UI"],
+    tag: ["All", "Web"],
     gitUrl: "https://github.com/sam-christopher07/Health-Align-WebApp",
     previewUrl: "https://health-align-web-app.vercel.app",
   },
@@ -84,7 +84,7 @@ const ProjectsSection = forwardRef((props, ref) => {
         My Projects
       </h2>
       <div className="text-white flex flex-row justify-center items-start gap-2 py-4">
-        {["All", "Web", "UI", "Games"].map(renderTagButton)}
+        {["All", "Web", "Games"].map(renderTagButton)}
       </div>
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
