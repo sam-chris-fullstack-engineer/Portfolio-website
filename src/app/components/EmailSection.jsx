@@ -189,9 +189,11 @@ const EmailSection = forwardRef((props, ref) => {
           }`}
         >
           <div className="z-10">
-            <h5 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8">Let&apos;s Connect</h5>
+            <h5 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8">
+              Let&apos;s Connect
+            </h5>
             <p className="text-gray-400 mb-4 sm:mb-6 overflow-hidden">
-              <StaggeredWaveText text="I&apos;m always open to new connections and collaborations. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!" />
+              <StaggeredWaveText text="I'm always open to new connections and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!" />
             </p>
             <div className="socials flex space-x-4 sm:space-x-6">
               <Link href="https://github.com/sam-christopher07">
@@ -236,7 +238,7 @@ const EmailSection = forwardRef((props, ref) => {
                   className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
                     errors.email ? "border-red-500" : "border-gray-600"
                   } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="xyz@gmail.com"
+                  placeholder="your-email@gmail.com"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">*{errors.email}</p>
@@ -281,7 +283,7 @@ const EmailSection = forwardRef((props, ref) => {
                   className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
                     errors.message ? "border-red-500" : "border-gray-600"
                   } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="Let&apos;s talk about..."
+                  placeholder="Let's talk about..."
                 />
                 {errors.message && (
                   <p className="text-red-500 text-sm mt-1">*{errors.message}</p>
@@ -291,11 +293,7 @@ const EmailSection = forwardRef((props, ref) => {
                 type="submit"
                 className="w-full py-2 sm:py-3 rounded-lg bg-yellow-700 hover:bg-yellow-900 font-semibold transition-colors duration-300 flex items-center justify-center"
               >
-                {isLoading ? (
-                  <div className="spinner"></div>
-                ) : (
-                  "Send Message"
-                )}
+                {isLoading ? <div className="spinner"></div> : "Send Message"}
               </button>
             </form>
           </div>
@@ -304,7 +302,9 @@ const EmailSection = forwardRef((props, ref) => {
       {emailSubmitted && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-opacity-75 bg-gray-900">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">Hooray!🎉</h2>
+            <h2 className="text-lg font-semibold text-gray-800 mb-2">
+              Hooray!🎉
+            </h2>
             <p className="text-gray-600 mb-4">All set, your message is sent!</p>
             <button
               onClick={() => setEmailSubmitted(false)}
