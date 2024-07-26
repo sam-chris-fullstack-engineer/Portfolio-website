@@ -196,21 +196,27 @@ const EmailSection = forwardRef((props, ref) => {
               <StaggeredWaveText text="I'm always open to new connections and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!" />
             </p>
             <div className="socials flex space-x-4 sm:space-x-6">
-              <Link href="https://github.com/sam-christopher07">
+              <Link href="https://github.com/sam-christopher07" target="blank">
                 <Image
                   src={GithubIcon}
                   alt="Github Icon"
                   className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
                 />
               </Link>
-              <Link href="https://www.linkedin.com/in/sam-christopher07/">
+              <Link
+                href="https://www.linkedin.com/in/sam-christopher07/"
+                target="blank"
+              >
                 <Image
                   src={LinkedinIcon}
                   alt="Linkedin Icon"
                   className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
                 />
               </Link>
-              <Link href="#">
+              <Link
+                href="https://www.instagram.com/code._.bruh/"
+                target="blank"
+              >
                 <Image
                   src={InstagramIcon}
                   alt="Instagram Icon"
