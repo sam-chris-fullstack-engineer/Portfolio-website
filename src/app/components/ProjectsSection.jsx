@@ -11,8 +11,8 @@ const projectsData = [
       "TuneHub is a music streaming platform designed to provide a seamless and enjoyable music listening experience. With TuneHub, users can listen to their favorite songs, create new tracks, and add songs to their personal playlists, offering comprehensive music streaming functionality.",
     imageUrl: "/images/projects/project-1.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/sam-christopher07/Tune-Hub-WebApp",
-    previewUrl: "https://tune-hubwebapp.netlify.app/",
+    gitUrl: "https://github.com/sam-chris-fullstack-engineer/TuneHub-WebApp",
+    previewUrl: "https://tunehub-webapp.netlify.app/",
     videoUrl: "https://youtu.be/ZPh_y4l2Sb8",
   },
   {
@@ -32,8 +32,8 @@ const projectsData = [
       "Guess My Number is a fun game where players try to guess a randomly generated number. This project showcases my skills in JavaScript, HTML, and CSS.",
     imageUrl: "/images/projects/project-3.png",
     tag: ["All", "Web", "Games"],
-    gitUrl: "https://github.com/sam-christopher07/Guess-My-Number-Game",
-    previewUrl: "https://guess-my-number-web-game.netlify.app",
+    gitUrl: "https://github.com/sam-chris-fullstack-engineer/Guess-My-Number-Game",
+    previewUrl: "https://guess-my-number-web-game.netlify.app/",
   },
   {
     id: 4,
@@ -42,8 +42,8 @@ const projectsData = [
       "Health Align is a patient management application designed to streamline healthcare experiences. It enables easy registration, appointment booking, and management for patients, and includes administrative tools for scheduling and canceling appointments, along with SMS notifications. Built with Next.js for a robust user experience.",
     imageUrl: "/images/projects/project-4.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/sam-christopher07/Health-Align-WebApp",
-    previewUrl: "https://health-align-web-app.vercel.app",
+    gitUrl: "https://github.com/sam-chris-fullstack-engineer/Health-Align",
+    previewUrl: "https://health-align.vercel.app/",
   },
 ];
 
