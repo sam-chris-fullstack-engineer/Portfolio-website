@@ -86,9 +86,9 @@ const HeroSection = ({ emailRef }) => {
               sequence={[
                 "Sam Christopher",
                 1000,
-                "Software Developer",
+                "Fullstack Engineer",
                 1000,
-                "Video Editor",
+                "Software Developer",
                 1000,
                 "Content Creator",
                 1000,
