@@ -196,7 +196,7 @@ const EmailSection = forwardRef((props, ref) => {
               <StaggeredWaveText text="I'm always open to new connections and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!" />
             </p>
             <div className="socials flex space-x-4 sm:space-x-6">
-              <Link href="https://github.com/sam-christopher07" target="blank">
+              <Link href="https://github.com/sam-chris-fullstack-engineer" target="blank">
                 <Image
                   src={GithubIcon}
                   alt="Github Icon"
@@ -204,7 +204,7 @@ const EmailSection = forwardRef((props, ref) => {
                 />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/sam-christopher07/"
+                href="https://www.linkedin.com/in/sam-chris-fullstack-engineer/"
                 target="blank"
               >
                 <Image
