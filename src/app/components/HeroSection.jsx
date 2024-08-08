@@ -60,7 +60,7 @@ const HeroSection = ({ emailRef }) => {
   };
 
   const handleGetResume = () => {
-    window.open("/samchristopher-resume.pdf", "_blank");
+    window.open("/sam christopher-full-stack engineer", "_blank");
   };
 
   return (
