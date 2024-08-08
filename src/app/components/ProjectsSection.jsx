@@ -45,6 +45,16 @@ const projectsData = [
     gitUrl: "https://github.com/sam-chris-fullstack-engineer/Health-Align",
     previewUrl: "https://health-align.vercel.app/",
   },
+  {
+    id: 5,
+    title: "Roll & Win: The Ultimate Dice Battle",
+    description:
+      "Roll & Win is an engaging dice game where players compete by rolling dice and accumulating points. The game features a clean and user-friendly interface with dynamic animations and vibrant colors, providing an enjoyable experience for quick matches with friends or family",
+    imageUrl: "/images/projects/project-5.png",
+    tag: ["All", "Web", "Games"],
+    gitUrl: "https://github.com/sam-chris-fullstack-engineer/roll-and-win-game",
+    previewUrl: "https://roll-and-win.netlify.app/",
+  },
 ];
 
 const ProjectsSection = forwardRef((props, ref) => {
