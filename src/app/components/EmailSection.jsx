@@ -204,7 +204,7 @@ const EmailSection = forwardRef((props, ref) => {
                 />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/sam-chris-fullstack-engineer/"
+                href="https://www.linkedin.com/in/sam-chris-full-stack-engineer/"
                 target="blank"
               >
                 <Image
