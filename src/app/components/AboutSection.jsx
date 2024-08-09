@@ -186,7 +186,7 @@ const AboutSection = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold text-yellow-400 mb-4 about-title" // Applied the about-title class here
           >
-            About Me
+            Who I Am:
           </motion.h2>
           <motion.p
             variants={container(0.5)}
