@@ -11,7 +11,7 @@ Welcome to my **Personal Portfolio Website**! This website showcases my skills, 
 
 ## Screenshots 📸
 
-![Portfolio GIF](https://drive.google.com/uc?export=view&id=1SqHkFcM7RacgFn0Mg8eFFxuqsTanFlmC)
+![Portfolio GIF](https://github.com/sam-chris-fullstack-engineer/readme-portfolio-gif/blob/main/project-5.gif)
 
 
 ## Installation 🛠️
