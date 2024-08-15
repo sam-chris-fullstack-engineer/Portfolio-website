@@ -11,15 +11,26 @@ const Container = styled.div`
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
+  max-width: 100%;
   margin: auto;
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 10px;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
   color: #ffd700;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const Input = styled.input`
@@ -38,6 +49,11 @@ const Input = styled.input`
     background-color: #555b66;
     box-shadow: 0 0 10px #ffd700;
   }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
 `;
 
 const Textarea = styled.textarea`
@@ -55,6 +71,12 @@ const Textarea = styled.textarea`
     outline: none;
     background-color: #555b66;
     box-shadow: 0 0 10px #ffd700;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    resize: none;
   }
 `;
 
@@ -77,13 +99,23 @@ const Button = styled.button`
     background-color: #666666;
     cursor: not-allowed;
   }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
 `;
 
 const SocialIcons = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1.5rem;
+
+  @media (max-width: 480px) {
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
 `;
 
 const EmailSection = forwardRef((props, ref) => {
@@ -214,7 +246,7 @@ const EmailSection = forwardRef((props, ref) => {
           className={errors.email && "error"}
         />
         {errors.email && (
-          <p style={{ color: "red", fontSize: "0.875rem" }}>
+          <p style={{ color: "red", fontSize: "0.875rem", textAlign: "center" }}>
             *{errors.email}
           </p>
         )}
@@ -228,7 +260,7 @@ const EmailSection = forwardRef((props, ref) => {
           className={errors.subject && "error"}
         />
         {errors.subject && (
-          <p style={{ color: "red", fontSize: "0.875rem" }}>
+          <p style={{ color: "red", fontSize: "0.875rem", textAlign: "center" }}>
             *{errors.subject}
           </p>
         )}
@@ -242,7 +274,7 @@ const EmailSection = forwardRef((props, ref) => {
           className={errors.message && "error"}
         />
         {errors.message && (
-          <p style={{ color: "red", fontSize: "0.875rem" }}>
+          <p style={{ color: "red", fontSize: "0.875rem", textAlign: "center" }}>
             *{errors.message}
           </p>
         )}
