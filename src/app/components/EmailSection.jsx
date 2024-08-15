@@ -1,9 +1,10 @@
-import React, { useState, useEffect, forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import InstagramIcon from "../../../public/Instagram-icon.svg";
 import styled from "styled-components";
+import { TypeAnimation } from "react-type-animation";
 
 const Container = styled.div`
   background: linear-gradient(135deg, #3a3f47, #504a3a);
@@ -263,7 +264,19 @@ const EmailSection = forwardRef((props, ref) => {
 
   return (
     <Container ref={ref}>
-      <Title>Contact Me</Title>
+      <Title>
+        <TypeAnimation
+          sequence={[
+            "Get in Touch", // Text to type
+            1000, // Wait 1 second before deleting
+            "", // Delete the text
+            1000, // Wait 1 second before typing again
+          ]}
+          wrapper="span"
+          speed={50}
+          repeat={Infinity} // Repeat infinitely
+        />
+      </Title>
       <form onSubmit={handleSubmit}>
         {errors.email && <ErrorText>*{errors.email}</ErrorText>}
         <Input
