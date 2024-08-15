@@ -313,7 +313,7 @@ const EmailSection = forwardRef((props, ref) => {
         <a href="https://github.com/sam-chris-fullstack-engineer" target="_blank" rel="noopener noreferrer">
           <Image src={GithubIcon} alt="Github" width={32} height={32} />
         </a>
-        <a href="https://www.linkedin.com/in/sam-christopher" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/sam-chris-full-stack-engineer/" target="_blank" rel="noopener noreferrer">
           <Image src={LinkedinIcon} alt="LinkedIn" width={32} height={32} />
         </a>
         <a href="https://www.instagram.com/sam_chris_engineer" target="_blank" rel="noopener noreferrer">
