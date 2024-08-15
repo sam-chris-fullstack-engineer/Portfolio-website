@@ -6,14 +6,31 @@ import InstagramIcon from "../../../public/Instagram-icon.svg";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background: linear-gradient(135deg, #282c34 0%, #3a3f47 100%);
+  background: linear-gradient(135deg, #3a3f47, #504a3a);
   color: #ffffff;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   max-width: 700px; /* Limit the maximum width */
   margin: auto;
   overflow: hidden;
+  position: relative;
+  border: 3px solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    left: -3px;
+    z-index: -1;
+    background: linear-gradient(135deg, #ffd700, #ffac00);
+    border-radius: 15px;
+    filter: blur(8px);
+  }
 
   @media (max-width: 480px) {
     padding: 1rem;
@@ -38,7 +55,7 @@ const Input = styled.input`
   width: 100%;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 5px;
   background-color: #444851;
   color: #ffffff;
@@ -48,6 +65,8 @@ const Input = styled.input`
   &:focus {
     outline: none;
     background-color: #555b66;
+    border-image: linear-gradient(135deg, #ffd700, #ffac00);
+    border-image-slice: 1;
     box-shadow: 0 0 10px #ffd700;
   }
 
@@ -61,7 +80,7 @@ const Textarea = styled.textarea`
   width: 100%;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 5px;
   background-color: #444851;
   color: #ffffff;
@@ -71,6 +90,8 @@ const Textarea = styled.textarea`
   &:focus {
     outline: none;
     background-color: #555b66;
+    border-image: linear-gradient(135deg, #ffd700, #ffac00);
+    border-image-slice: 1;
     box-shadow: 0 0 10px #ffd700;
   }
 
@@ -279,13 +300,14 @@ const EmailSection = forwardRef((props, ref) => {
         <a href="https://github.com/sam-chris-fullstack-engineer" target="_blank" rel="noopener noreferrer">
           <Image src={GithubIcon} alt="Github" width={32} height={32} />
         </a>
-        <a href="https://www.linkedin.com/in/sam-chris-full-stack-engineer/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/sam-christopher" target="_blank" rel="noopener noreferrer">
           <Image src={LinkedinIcon} alt="LinkedIn" width={32} height={32} />
         </a>
-        <a href="https://www.instagram.com/code._.bruh/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/sam_chris_engineer" target="_blank" rel="noopener noreferrer">
           <Image src={InstagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       </SocialIcons>
+
       {emailSubmitted && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-opacity-75 bg-gray-900">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">
