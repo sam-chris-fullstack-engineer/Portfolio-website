@@ -11,13 +11,14 @@ const Container = styled.div`
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  max-width: 100%;
+  max-width: 700px; /* Limit the maximum width */
   margin: auto;
   overflow: hidden;
 
   @media (max-width: 480px) {
     padding: 1rem;
     border-radius: 10px;
+    max-width: 100%; /* Full width for mobile */
   }
 `;
 
@@ -36,7 +37,7 @@ const Title = styled.h1`
 const Input = styled.input`
   width: 100%;
   padding: 1rem;
-  margin-bottom: 0.5rem; /* Adjusted margin to accommodate error message */
+  margin-bottom: 0.5rem;
   border: none;
   border-radius: 5px;
   background-color: #444851;
@@ -59,7 +60,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   width: 100%;
   padding: 1rem;
-  margin-bottom: 0.5rem; /* Adjusted margin to accommodate error message */
+  margin-bottom: 0.5rem;
   border: none;
   border-radius: 5px;
   background-color: #444851;
@@ -121,7 +122,7 @@ const SocialIcons = styled.div`
 const ErrorText = styled.p`
   color: red;
   font-size: 0.875rem;
-  margin-bottom: 0.5rem; /* Space above the input */
+  margin-bottom: 0.5rem;
   text-align: left;
 `;
 
