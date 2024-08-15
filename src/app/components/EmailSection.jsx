@@ -36,7 +36,7 @@ const Title = styled.h1`
 const Input = styled.input`
   width: 100%;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Adjusted margin to accommodate error message */
   border: none;
   border-radius: 5px;
   background-color: #444851;
@@ -59,7 +59,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   width: 100%;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Adjusted margin to accommodate error message */
   border: none;
   border-radius: 5px;
   background-color: #444851;
@@ -116,6 +116,13 @@ const SocialIcons = styled.div`
     gap: 0.75rem;
     margin-top: 1rem;
   }
+`;
+
+const ErrorText = styled.p`
+  color: red;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem; /* Space above the input */
+  text-align: left;
 `;
 
 const EmailSection = forwardRef((props, ref) => {
@@ -236,6 +243,7 @@ const EmailSection = forwardRef((props, ref) => {
     <Container ref={ref}>
       <Title>Contact Me</Title>
       <form onSubmit={handleSubmit}>
+        {errors.email && <ErrorText>*{errors.email}</ErrorText>}
         <Input
           name="email"
           type="email"
@@ -243,13 +251,8 @@ const EmailSection = forwardRef((props, ref) => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Your Email"
-          className={errors.email && "error"}
         />
-        {errors.email && (
-          <p style={{ color: "red", fontSize: "0.875rem", textAlign: "center" }}>
-            *{errors.email}
-          </p>
-        )}
+        {errors.subject && <ErrorText>*{errors.subject}</ErrorText>}
         <Input
           name="subject"
           type="text"
@@ -257,13 +260,8 @@ const EmailSection = forwardRef((props, ref) => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Subject"
-          className={errors.subject && "error"}
         />
-        {errors.subject && (
-          <p style={{ color: "red", fontSize: "0.875rem", textAlign: "center" }}>
-            *{errors.subject}
-          </p>
-        )}
+        {errors.message && <ErrorText>*{errors.message}</ErrorText>}
         <Textarea
           name="message"
           value={formData.message}
@@ -271,13 +269,7 @@ const EmailSection = forwardRef((props, ref) => {
           onBlur={handleBlur}
           placeholder="Your Message"
           rows="6"
-          className={errors.message && "error"}
         />
-        {errors.message && (
-          <p style={{ color: "red", fontSize: "0.875rem", textAlign: "center" }}>
-            *{errors.message}
-          </p>
-        )}
         <Button type="submit" disabled={isLoading}>
           {isLoading ? "Sending..." : "Send Message"}
         </Button>
@@ -294,9 +286,19 @@ const EmailSection = forwardRef((props, ref) => {
         </a>
       </SocialIcons>
       {emailSubmitted && (
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <h2>Thank You!</h2>
-          <p>Your message has been sent successfully.</p>
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-opacity-75 bg-gray-900">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">
+            <h2 className="text-lg font-semibold text-gray-800 mb-2">
+              Hooray!🎉
+            </h2>
+            <p className="text-gray-600 mb-4">Your message has been sent successfully.</p>
+            <button
+              onClick={() => setEmailSubmitted(false)}
+              className="w-full bg-yellow-700 hover:bg-yellow-900 text-white py-2 rounded-lg transition-colors duration-300"
+            >
+              Close
+            </button>
+          </div>
         </div>
       )}
     </Container>
