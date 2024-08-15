@@ -39,7 +39,7 @@ const projectsData = [
     id: 4,
     title: "Health Align: A Healthcare Management System",
     description:
-      "Health Align is a patient management application designed to streamline healthcare experiences. It enables easy registration, appointment booking, and management for patients, and includes administrative tools for scheduling and canceling appointments, along with SMS notifications. Built with Next.js for a robust user experience.",
+      "Health Align is a patient management app that simplifies registration, appointment booking, and management, with scheduling tools and SMS notifications. Built with Next.js for a smooth experience",
     imageUrl: "/images/projects/project-4.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/sam-chris-fullstack-engineer/Health-Align",
