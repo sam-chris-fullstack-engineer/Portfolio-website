@@ -3,65 +3,88 @@ import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import InstagramIcon from "../../../public/Instagram-icon.svg";
-import { Exo } from "next/font/google";
-import Link from "next/link";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const exo = Exo({
-  subsets: ["latin"],
-  weight: "400",
-  style: "normal",
-});
-
-const wave = keyframes`
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  20% { transform: translateY(-10%); opacity: 1; }
-  40% { transform: translateY(0); }
-  60% { transform: translateY(-5%); }
-  80% { transform: translateY(0); }
+const Container = styled.div`
+  background: linear-gradient(135deg, #282c34 0%, #3a3f47 100%);
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: auto;
 `;
 
-const WaveText = styled.span`
-  display: inline-block;
-  animation: ${wave} 2s ease-in-out infinite;
-  opacity: 1;
-  margin-right: ${({ isSpace }) => (isSpace ? "0.5em" : "0")};
-  background: linear-gradient(to right, #ffd700, #ff8c00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+const Title = styled.h1`
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ffd700;
 `;
 
-const StaggeredWaveText = ({ text }) => {
-  const [isClient, setIsClient] = useState(false);
-  const [displayedText, setDisplayedText] = useState("");
+const Input = styled.input`
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #444851;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 
-  useEffect(() => {
-    setIsClient(true);
-    setDisplayedText(text);
-  }, [text]);
+  &:focus {
+    outline: none;
+    background-color: #555b66;
+    box-shadow: 0 0 10px #ffd700;
+  }
+`;
 
-  if (!isClient) {
-    return <span>{text}</span>;
+const Textarea = styled.textarea`
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #444851;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    background-color: #555b66;
+    box-shadow: 0 0 10px #ffd700;
+  }
+`;
+
+const Button = styled.button`
+  width: 100%;
+  padding: 1rem;
+  background-color: #ffd700;
+  color: #282c34;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #ff9900;
   }
 
-  const charArray = displayedText.split(/( )/);
+  &:disabled {
+    background-color: #666666;
+    cursor: not-allowed;
+  }
+`;
 
-  return (
-    <div>
-      {charArray.map((char, index) => (
-        <WaveText
-          key={index}
-          style={{ animationDelay: `${index * 0.1}s` }}
-          isSpace={char === " "}
-        >
-          {char}
-        </WaveText>
-      ))}
-    </div>
-  );
-};
+const SocialIcons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+`;
 
 const EmailSection = forwardRef((props, ref) => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -178,153 +201,75 @@ const EmailSection = forwardRef((props, ref) => {
   };
 
   return (
-    <div
-      ref={ref}
-      className="relative bg-gradient-to-r from-gray-800 to-black text-white py-6 px-4 sm:py-12 sm:px-6 md:px-12 rounded-lg shadow-2xl mt-12"
-    >
-      <div className="bg-black bg-opacity-50 rounded-lg p-4 sm:p-6 md:p-12">
-        <section
-          className={`grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 ${
-            emailSubmitted ? "blur-sm" : ""
-          }`}
-        >
-          <div className="z-10">
-            <h5 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8">
-              Let&apos;s Connect
-            </h5>
-            <p className="text-gray-400 mb-4 sm:mb-6 overflow-hidden">
-              <StaggeredWaveText text="I'm always open to new connections and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!" />
-            </p>
-            <div className="socials flex space-x-4 sm:space-x-6">
-              <Link href="https://github.com/sam-chris-fullstack-engineer" target="blank">
-                <Image
-                  src={GithubIcon}
-                  alt="Github Icon"
-                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
-                />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/sam-chris-full-stack-engineer/"
-                target="blank"
-              >
-                <Image
-                  src={LinkedinIcon}
-                  alt="Linkedin Icon"
-                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
-                />
-              </Link>
-              <Link
-                href="https://www.instagram.com/code._.bruh/"
-                target="blank"
-              >
-                <Image
-                  src={InstagramIcon}
-                  alt="Instagram Icon"
-                  className="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity duration-300"
-                />
-              </Link>
-            </div>
-          </div>
-          <div>
-            <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-1 sm:mb-2"
-                >
-                  Enter Your Email
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
-                    errors.email ? "border-red-500" : "border-gray-600"
-                  } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="your-email@gmail.com"
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">*{errors.email}</p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium mb-1 sm:mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  name="subject"
-                  type="text"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
-                    errors.subject ? "border-red-500" : "border-gray-600"
-                  } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="Just saying hi"
-                />
-                {errors.subject && (
-                  <p className="text-red-500 text-sm mt-1">*{errors.subject}</p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-1 sm:mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  id="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`w-full p-2 sm:p-3 rounded-lg bg-gray-700 border ${
-                    errors.message ? "border-red-500" : "border-gray-600"
-                  } placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                  placeholder="Let's talk about..."
-                />
-                {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">*{errors.message}</p>
-                )}
-              </div>
-              <button
-                type="submit"
-                className="w-full py-2 sm:py-3 rounded-lg bg-yellow-700 hover:bg-yellow-900 font-semibold transition-colors duration-300 flex items-center justify-center"
-              >
-                {isLoading ? <div className="spinner"></div> : "Send Message"}
-              </button>
-            </form>
-          </div>
-        </section>
-      </div>
+    <Container ref={ref}>
+      <Title>Contact Me</Title>
+      <form onSubmit={handleSubmit}>
+        <Input
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Your Email"
+          className={errors.email && "error"}
+        />
+        {errors.email && (
+          <p style={{ color: "red", fontSize: "0.875rem" }}>
+            *{errors.email}
+          </p>
+        )}
+        <Input
+          name="subject"
+          type="text"
+          value={formData.subject}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Subject"
+          className={errors.subject && "error"}
+        />
+        {errors.subject && (
+          <p style={{ color: "red", fontSize: "0.875rem" }}>
+            *{errors.subject}
+          </p>
+        )}
+        <Textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Your Message"
+          rows="6"
+          className={errors.message && "error"}
+        />
+        {errors.message && (
+          <p style={{ color: "red", fontSize: "0.875rem" }}>
+            *{errors.message}
+          </p>
+        )}
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? "Sending..." : "Send Message"}
+        </Button>
+      </form>
+      <SocialIcons>
+        <a href="https://github.com/sam-chris-fullstack-engineer" target="_blank" rel="noopener noreferrer">
+          <Image src={GithubIcon} alt="Github" width={32} height={32} />
+        </a>
+        <a href="https://www.linkedin.com/in/sam-chris-full-stack-engineer/" target="_blank" rel="noopener noreferrer">
+          <Image src={LinkedinIcon} alt="LinkedIn" width={32} height={32} />
+        </a>
+        <a href="https://www.instagram.com/code._.bruh/" target="_blank" rel="noopener noreferrer">
+          <Image src={InstagramIcon} alt="Instagram" width={32} height={32} />
+        </a>
+      </SocialIcons>
       {emailSubmitted && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-opacity-75 bg-gray-900">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">
-              Hooray!🎉
-            </h2>
-            <p className="text-gray-600 mb-4">All set, your message is sent!</p>
-            <button
-              onClick={() => setEmailSubmitted(false)}
-              className="w-full bg-yellow-700 hover:bg-yellow-900 text-white py-2 rounded-lg transition-colors duration-300"
-            >
-              Close
-            </button>
-          </div>
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <h2>Thank You!</h2>
+          <p>Your message has been sent successfully.</p>
         </div>
       )}
-    </div>
+    </Container>
   );
 });
 
 EmailSection.displayName = "EmailSection";
-
 export default EmailSection;
