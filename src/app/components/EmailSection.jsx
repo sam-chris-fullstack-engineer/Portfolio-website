@@ -316,7 +316,7 @@ const EmailSection = forwardRef((props, ref) => {
         <a href="https://www.linkedin.com/in/sam-chris-full-stack-engineer/" target="_blank" rel="noopener noreferrer">
           <Image src={LinkedinIcon} alt="LinkedIn" width={32} height={32} />
         </a>
-        <a href="https://www.instagram.com/code._.bruh/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/its_s4m.chrizz/" target="_blank" rel="noopener noreferrer">
           <Image src={InstagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       </SocialIcons>
